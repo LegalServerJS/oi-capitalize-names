@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title> Online Intake Name Capitalizer </title>
+	</head>
+	<body>
+		<div> 
+			<label for="firstName"> First Name: </label>
+			<input type="text" id="firstName" name="matter:firstName"/>
+		</div>
+		<div>
+			<label for="lastName"> Last Name: </label>
+			<input type="text" id="lastName" name="matter:lastName"/>
+		</div>
+		<script type="text/javascript">
+			function capitalizeName(event) {
+				//This function goes in a LegalServer instruction.
+				var content = event.target.value
+				console.log("Text is " + content)
+				var revisedContent = content.charAt(0).toUpperCase() + content.slice(1)
+				event.target.value = revisedContent
+			}
+			document.getElementsByName("matter:firstName")[0].addEventListener("blur", capitalizeName)
+			document.getElementsByName("matter:lastName")[0].addEventListener("blur", capitalizeName)
+		</script>
+	</body>
+</html>
